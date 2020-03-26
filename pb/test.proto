@@ -1,0 +1,24 @@
+syntax = "proto3";
+package pb.test;
+
+import "google/api/annotations.proto";
+import "validate/validate.proto";
+
+
+message Empty {
+}
+
+message TestResp {
+    string word = 1;
+}
+
+
+
+
+service MyTest {
+    rpc HelloWord (Empty) returns (TestResp) {
+        option (google.api.http) = {
+            get: "/v1/feed/data"
+        };
+    }
+}
